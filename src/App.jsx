@@ -16,15 +16,18 @@ function App() {
 
   return (
     <>
-      <div>
+      <div className='container'>
+        <h1>Attrici</h1>
         {actress.map(({id, name, birth_year, nationality, most_famous_movies, awards, biography, image }) =>(
-          <div key={id}>
-            <h3>{name}</h3>
-            <p>{birth_year}</p>
-            <span>{most_famous_movies}</span>
-            <span>{awards}</span>
-            <span>{biography}</span>
-            <div>
+          <div key={id} className='container-flex'>
+            <div className='container-card'>
+              <h3>{name}</h3>
+              <p>{birth_year}</p>
+              <span>{most_famous_movies}</span>
+              <span>{awards}</span>
+              <span>{biography}</span>
+            </div>
+            <div className='container-img'>
               <img src={image} alt={name} />
             </div>
          </div>
