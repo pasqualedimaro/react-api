@@ -1,5 +1,6 @@
-import { useState } from 'react'
+
 import axios from 'axios'
+import { useEffect, useState} from 'react'
 
 
 function App() {
@@ -9,18 +10,26 @@ function App() {
     .then((res) => setActress(res.data))
   }
   
+  useEffect(fetchActress,[]);
   console.log(actress);
   
 
   return (
     <>
       <div>
-        <button onClick={fetchActress}>Elenco Attrici</button>
-        <ul>
-          {actress.map((act) =>(
-            <li key={act.id}>{act.name}</li>
-          ))}
-        </ul>
+        {actress.map(({id, name, birth_year, nationality, most_famous_movies, awards, biography, image }) =>(
+          <div key={id}>
+            <h3>{name}</h3>
+            <p>{birth_year}</p>
+            <span>{most_famous_movies}</span>
+            <span>{awards}</span>
+            <span>{biography}</span>
+            <div>
+              <img src={image} alt={name} />
+            </div>
+         </div>
+        )
+      )}
       </div>        
     </>
   )
