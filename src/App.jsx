@@ -9,6 +9,9 @@ function App() {
     .then((res) => setActress(res.data))
   }
   
+  console.log(actress);
+  
+
   return (
     <>
       <div>
